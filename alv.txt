@@ -1,0 +1,23 @@
+<script type="text/javascript">
+        $(document).ready(function  (){
+            $("#register").click(function () {
+                var fname=document.getElementById('fname').value;
+                var lname=$("lname").val();
+                var email=$("email").val();
+                var password=$("password").val();
+
+                $.ajax({
+                    url: 'adduser.php',
+                    type: 'POST',
+                    data: "fname=" + fname + "&lname="+ lname +"&email=" + email + "&password="+ password,
+                })
+                .done(function(res){
+                    $('#respuesta').html(res)
+                })
+                .fail(function(){
+                    console.log("error");
+                });
+                
+            });
+        });
+    </script>
